@@ -10,11 +10,11 @@
                 <span>请登录</span>
               </div>
               <el-row type="flex" class="row-bg" justify="space-around">
-                <el-col :md="12" :xs="24">
+                <el-col :md="12" :sm="24" :xs="24">
                   <div class="text item">
                     <el-form :model="formLabelAlign">
                       <el-form-item>
-                        <el-input placeholder="学号/工资号" type="number" v-model="formLabelAlign.name"></el-input>
+                        <el-input placeholder="学号/工资号" v-model="formLabelAlign.name"></el-input>
                       </el-form-item>
                       <el-form-item>
                         <el-input placeholder="密码" type="password" v-model="formLabelAlign.password"></el-input>
@@ -56,7 +56,9 @@
       submit() {
         console.log(this.formLabelAlign.name + '\n');
         console.log(this.formLabelAlign.password + '\n');
-        this.$http.post().then();
+        this.$http.post('https://os.ncuos.com/api/user/token', {username: this.formLabelAlign.name, password: this.formLabelAlign.password}).then(response => {
+          console.log(response.body.message);
+        });
       }
     }
   }
