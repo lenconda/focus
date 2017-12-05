@@ -17,6 +17,7 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <el-button type="danger" @click="getIndex"></el-button>
   </div>
 </template>
 
@@ -26,6 +27,13 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    getIndex() {
+      this.$http.get('https://os.ncuos.com/api/user/profile/index').then(response => {
+        console.log(response.body);
+      });
     }
   }
 }

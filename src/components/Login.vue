@@ -21,6 +21,7 @@
                       </el-form-item>
                       <el-form-item>
                         <el-button type="primary" @click="submit">登录</el-button>
+                        <!--<el-button type="danger" @click="test">test</el-button>-->
                       </el-form-item>
                     </el-form>
                   </div>
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+  import Vue from 'vue';
   export default {
     name: "login",
     mounted() {
@@ -54,11 +56,27 @@
     },
     methods: {
       submit() {
-        console.log(this.formLabelAlign.name + '\n');
-        console.log(this.formLabelAlign.password + '\n');
         this.$http.post('https://os.ncuos.com/api/user/token', {username: this.formLabelAlign.name, password: this.formLabelAlign.password}).then(response => {
-          console.log(response.body.message);
+          if (response.body.status == 0) {
+            this.$notify({
+              title: '用户名或密码错误',
+              message: response.body.message,
+              type: 'error'
+            });
+          } else {
+            this.$notify({
+              title: '登录成功',
+              message: response.body.message,
+              type: 'success'
+            });
+            Vue.http.headers.common.Authorization = `passport ${response.body.token}`;
+          }
         });
+      },
+      test() {
+        this.$http.get('https://os.ncuos.com/api/user/profile/index').then(response => {
+          console.log(response.body);
+        })
       }
     }
   }
