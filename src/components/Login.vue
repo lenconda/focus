@@ -9,19 +9,23 @@
               <div slot="header" class="clearfix">
                 <span>请登录</span>
               </div>
-              <div class="text item">
-                <el-form :model="formLabelAlign">
-                  <el-form-item>
-                    <el-input placeholder="学号/工资号" type="number" v-model="formLabelAlign.name"></el-input>
-                  </el-form-item>
-                  <el-form-item>
-                    <el-input placeholder="密码" type="password" v-model="formLabelAlign.password"></el-input>
-                  </el-form-item>
-                  <el-form-item>
-                    <el-button type="primary" @click="submit">登录</el-button>
-                  </el-form-item>
-                </el-form>
-              </div>
+              <el-row type="flex" class="row-bg" justify="space-around">
+                <el-col :md="12" :xs="24">
+                  <div class="text item">
+                    <el-form :model="formLabelAlign">
+                      <el-form-item>
+                        <el-input placeholder="学号/工资号" type="number" v-model="formLabelAlign.name"></el-input>
+                      </el-form-item>
+                      <el-form-item>
+                        <el-input placeholder="密码" type="password" v-model="formLabelAlign.password"></el-input>
+                      </el-form-item>
+                      <el-form-item>
+                        <el-button type="primary" @click="submit">登录</el-button>
+                      </el-form-item>
+                    </el-form>
+                  </div>
+                </el-col>
+              </el-row>
             </el-card>
           </div>
         </el-col>
