@@ -7,7 +7,15 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  mounted() {
+    window.onblur = function () {
+      alert(1);
+    }
+    WeixinJSBridge.invoke('closeWindow', {}, res => {
+      alert(2);
+    })
+  }
 }
 </script>
 
