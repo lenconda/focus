@@ -6,17 +6,18 @@
 </template>
 
 <script>
-export default {
-  name: 'app',
-  mounted() {
-    window.onblur = function () {
-      alert(1);
+  import Vue from 'vue';
+  export default {
+    name: 'app',
+    mounted() {
+      let _this = this;
+      window.addEventListener('visibilitychange', function () {
+        _this.$http.get('static/api/test.php').then(res => {
+          /* Here to place the logic code */
+        });
+      })
     }
-    WeixinJSBridge.invoke('closeWindow', {}, res => {
-      alert(2);
-    })
   }
-}
 </script>
 
 <style>
@@ -26,6 +27,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /*margin-top: 60px;*/
+  margin-top: 60px;
 }
 </style>
