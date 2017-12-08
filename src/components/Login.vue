@@ -21,7 +21,7 @@
                       </el-form-item>
                       <el-form-item>
                         <el-button type="primary" @click="submit">登录</el-button>
-                        <el-button type="danger" @click="test">test</el-button>
+                        <!--<el-button type="danger" @click="test">test</el-button>-->
                       </el-form-item>
                     </el-form>
                   </div>
@@ -56,7 +56,7 @@
     },
     methods: {
       submit() {
-        this.$http.post('https://os.ncuos.com/api/user/token', {username: this.formLabelAlign.name, password: this.formLabelAlign.password}).then(response => {
+        this.$http.post('/api/login', {username: this.formLabelAlign.name, password: this.formLabelAlign.password}).then(response => {
           if (response.body.status == 0) {
             this.$notify({
               title: '用户名或密码错误',
@@ -64,10 +64,8 @@
               type: 'error'
             });
           } else {
-            // this.$notify({
-            //   title: '登录成功',
-            //   message: response.body.message,
-            //   type: 'success'
+            // this.$http.post('/api/login', {token: `passport ${response.body.token}`, username: this.formLabelAlign.name}).then(res => {
+            //   console.log(res.status);
             // });
             document.cookie = `token=passport ${response.body.token}`;
             document.cookie = `username=${this.formLabelAlign.name}`;
@@ -78,9 +76,6 @@
       },
       test() {
         // this.$root.eventHub.$emit('getUsername', this.formLabelAlign.name)
-        // this.$http.get('https://os.ncuos.com/api/user/profile/index').then(response => {
-        //   console.log(response.body);
-        // })
       }
     }
   }
