@@ -1,17 +1,37 @@
 <template>
   <div class="hello">
-
-      <router-link :to="{ path: 'main' }">
-        <div class="takeclass">
-          <p>去上课</p>
-        </div>
-      </router-link>
+    <router-link :to="{ path: 'main' }">
+      <div class="takeclass">
+        <p>去上课</p>
+      </div>
+    </router-link>
+    <!--<el-button @click="test()">test</el-button>-->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld'
+  name: 'HelloWorld',
+  mounted() {
+    if (this.getCookie('username') == null) {
+      window.location.href = '#/login';
+    }
+  },
+  methods: {
+    test() {
+      this.$http.get('https://os.ncuos.com/api/user/profile/basic').then(res => {
+        alert(res.body.message);
+      })
+    },
+    getCookie(name) {
+      var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+      if(arr = document.cookie.match(reg)){
+        return arr[2];
+      } else {
+        return null;
+      }
+    }
+  }
 }
 </script>
 

@@ -64,12 +64,19 @@
               type: 'error'
             });
           } else {
-            this.$notify({
-              title: '登录成功',
-              message: response.body.message,
-              type: 'success'
-            });
+            // this.$notify({
+            //   title: '登录成功',
+            //   message: response.body.message,
+            //   type: 'success'
+            // });
+            // setCookie('token', `passport ${response.body.token}`, 7);
+            // alert(getCookie('token'));
+            // $.cookie('token', `passport ${response.body.token}`, { expires: 7 });
+            // alert('token');
+            document.cookie = `token=passport ${response.body.token}`;
+            document.cookie = `username=${this.formLabelAlign.name}`;
             Vue.http.headers.common.Authorization = `passport ${response.body.token}`;
+            window.location.href = '#/main';
           }
         });
       },

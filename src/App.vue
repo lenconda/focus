@@ -17,7 +17,17 @@
   export default {
     name: 'app',
     mounted() {
+      if (this.getCookie('username') == null) {
+        window.location.href = '#/login';
+      }
       let _this = this;
+      // _this.$http.get('https://os.ncuos.com/api/user/profile/basic').then(res => {
+      //   if (res.ok == false) {
+      //     window.location.href = '#/login';
+      //   }
+      // })
+      // alert(document.cookie);
+      // alert(this.getCookie('username'));
       window.addEventListener('visibilitychange', function () {
         _this.$http.get('static/api/test.php').then(res => {
           /* Here to place the logic code */
@@ -27,11 +37,19 @@
     methods: {
       isWeChat() {
         var ua = window.navigator.userAgent.toLowerCase();
-        console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+        console.log(ua);
         if (ua.match(/MicroMessenger/i) == 'micromessenger') {
           return true;
         } else {
           return false;
+        }
+      },
+      getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)){
+          return arr[2];
+        } else {
+          return null;
         }
       }
     },
