@@ -17,22 +17,21 @@
   export default {
     name: 'app',
     mounted() {
+      // alert(this.getCookie('username'));
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
       let _this = this;
-      // _this.$http.get('https://os.ncuos.com/api/user/profile/basic').then(res => {
-      //   if (res.ok == false) {
-      //     window.location.href = '#/login';
-      //   }
-      // })
-      // alert(document.cookie);
-      // alert(this.getCookie('username'));
-      window.addEventListener('visibilitychange', function () {
-        _this.$http.get('static/api/test.php').then(res => {
-          /* Here to place the logic code */
+      window.addEventListener('focus', function () {
+        _this.$http.get('static/api/test.php?action=focus').then(res => {
+
         });
-      })
+      });
+      window.addEventListener('blur', function () {
+        _this.$http.get('static/api/test.php?action=blur').then(res => {
+
+        });
+      });
     },
     methods: {
       isWeChat() {
@@ -55,6 +54,11 @@
     },
     watch: {
       '$route' (to, from) {}
+    },
+    created () {
+      this.$root.eventHub.$on('getUsername', (val) => {
+        console.log(val)
+      })
     }
   }
 </script>

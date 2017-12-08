@@ -21,7 +21,7 @@
                       </el-form-item>
                       <el-form-item>
                         <el-button type="primary" @click="submit">登录</el-button>
-                        <!--<el-button type="danger" @click="test">test</el-button>-->
+                        <el-button type="danger" @click="test">test</el-button>
                       </el-form-item>
                     </el-form>
                   </div>
@@ -69,10 +69,6 @@
             //   message: response.body.message,
             //   type: 'success'
             // });
-            // setCookie('token', `passport ${response.body.token}`, 7);
-            // alert(getCookie('token'));
-            // $.cookie('token', `passport ${response.body.token}`, { expires: 7 });
-            // alert('token');
             document.cookie = `token=passport ${response.body.token}`;
             document.cookie = `username=${this.formLabelAlign.name}`;
             Vue.http.headers.common.Authorization = `passport ${response.body.token}`;
@@ -81,11 +77,11 @@
         });
       },
       test() {
-        this.$http.get('https://os.ncuos.com/api/user/profile/index').then(response => {
-          console.log(response.body);
-        })
+        // this.$root.eventHub.$emit('getUsername', this.formLabelAlign.name)
+        // this.$http.get('https://os.ncuos.com/api/user/profile/index').then(response => {
+        //   console.log(response.body);
+        // })
       }
     }
   }
 </script>
-
