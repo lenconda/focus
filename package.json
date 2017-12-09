@@ -1,7 +1,7 @@
 {
-  "name": "agame",
+  "name": "yourtime",
   "version": "1.0.0",
-  "description": "A simple game.",
+  "description": "A simple web application to correct the bad habit of using mobiles during classes.",
   "author": "lenconda <1053464288@qq.com>",
   "private": true,
   "scripts": {
