@@ -5,29 +5,28 @@
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="6" :xs="24">
           <div class="grid-content">
-            <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                <span>请登录</span>
-              </div>
+            <el-card class="box-card" id="loginCard">
               <el-row type="flex" class="row-bg" justify="space-around">
                 <el-col :md="12" :sm="24" :xs="24">
                   <div class="text item">
                     <el-form :model="formLabelAlign">
                       <el-form-item>
-                        <el-input placeholder="学号/工资号" v-model="formLabelAlign.name"></el-input>
+                        <el-input placeholder="学号" v-model="formLabelAlign.name"></el-input>
                       </el-form-item>
                       <el-form-item>
-                        <el-input placeholder="密码" type="password" v-model="formLabelAlign.password"></el-input>
-                      </el-form-item>
-                      <el-form-item>
-                        <el-button type="primary" @click="submit">登录</el-button>
-                        <el-button type="danger" @click="test">test</el-button>
+                        <el-input id="pwd" placeholder="云家园密码" type="password" v-model="formLabelAlign.password"></el-input>
                       </el-form-item>
                     </el-form>
                   </div>
                 </el-col>
               </el-row>
             </el-card>
+            <el-form>
+              <el-form-item>
+                <el-button id="submit" type="primary" @click="submit">登录</el-button>
+                <!--<el-button type="danger" @click="test">test</el-button>-->
+              </el-form-item>
+            </el-form>
           </div>
         </el-col>
       </div>
@@ -92,3 +91,25 @@
     }
   }
 </script>
+
+<style scoped>
+  .box-card {
+    background: #00c7ce;
+    border: none;
+    box-shadow: 0 0 10px 0 #00a9b6;
+  }
+  .box-card .el-form-item {
+    margin-bottom: 32px;
+  }
+  .el-card {
+    padding: 26px;
+    padding-bottom: 0;
+  }
+  #submit {
+    margin-top: 32px;
+    width: 100%;
+    background: #00c0d2;
+    border: none;
+    box-shadow: 0 0 10px 0 #00a9b6;
+  }
+</style>

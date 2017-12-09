@@ -6,7 +6,7 @@
     </div>
     <div v-else>
       <div>
-        <h1>请使用微信访问！</h1>
+        <h2 class="useWechat">请使用微信访问！</h2>
       </div>
     </div>
   </div>
@@ -73,8 +73,8 @@
     color: #2c3e50;
     /*margin-top: 60px;*/
   }
-
-  h1 {
+  .useWechat {
     margin-top: 2em;
+    color: aliceblue;
   }
 </style>
