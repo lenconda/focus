@@ -6,7 +6,7 @@
     </div>
     <div v-else>
       <div>
-        <h1>请使用微信登录！</h1>
+        <h1>请使用微信访问！</h1>
       </div>
     </div>
   </div>
@@ -23,6 +23,7 @@
       }
       let _this = this;
       window.addEventListener('focus', function () {
+        // alert(this.getCookie('username'));
         _this.$http.get('static/api/test.php?action=focus').then(res => {
 
         });

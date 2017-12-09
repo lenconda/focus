@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 /* Import the components here */
-import HelloWorld from '@/components/HelloWorld';
+// import HelloWorld from '@/components/HelloWorld';
 import Login from '@/components/Login';
 import RankList from '@/components/RankList';
 import MainPage from '@/components/MainPage';
@@ -14,7 +14,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: HelloWorld
+      component: Login
     },
     {
       path: '/login',

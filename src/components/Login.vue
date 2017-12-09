@@ -21,7 +21,7 @@
                       </el-form-item>
                       <el-form-item>
                         <el-button type="primary" @click="submit">登录</el-button>
-                        <!--<el-button type="danger" @click="test">test</el-button>-->
+                        <el-button type="danger" @click="test">test</el-button>
                       </el-form-item>
                     </el-form>
                   </div>
@@ -45,6 +45,9 @@
         message: '出于安全考虑，用户名或密码输入错误达到5次将会被冻结账户！',
         type: 'warning'
       });
+      if (this.getCookie('username') != null) {
+        window.location.href = '#/main';
+      }
     },
     data() {
       return {
@@ -74,8 +77,17 @@
           }
         });
       },
+      getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+          return arr[2];
+        } else {
+          return null;
+        }
+      },
       test() {
         // this.$root.eventHub.$emit('getUsername', this.formLabelAlign.name)
+        // alert(this.getCookie('username'));
       }
     }
   }
