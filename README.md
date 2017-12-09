@@ -1,4 +1,4 @@
-# Focus
+# FOCUS
 
 > A simple web application to make you concentrate on your classes.
 
