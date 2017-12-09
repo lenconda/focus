@@ -1,7 +1,15 @@
 <template>
   <el-container>
-    <el-header></el-header>
     <el-main>
+      <div class="row-bg el-row is-justify-space-around el-row--flex">
+        <el-col :md="12" :xs="12">
+          <img src="static/img/startnow.png" width="100%" alt="">
+        </el-col>
+        <el-col :md="12" :xs="12">
+          <img src="static/img/time.png" width="50%" alt="">
+        </el-col>
+      </div>
+      <el-header></el-header>
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="6" :xs="24">
           <div class="grid-content">
