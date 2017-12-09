@@ -1,7 +1,7 @@
 {
-  "name": "yourtime",
+  "name": "focus",
   "version": "1.0.0",
-  "description": "A simple web application to correct the bad habit of using mobiles during classes.",
+  "description": "A simple web application to make you concentrate on your classes (For NCU students ONLY).",
   "author": "lenconda <1053464288@qq.com>",
   "private": true,
   "scripts": {
