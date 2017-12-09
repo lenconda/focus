@@ -1,8 +1,10 @@
-# agame
+# Focus
 
-> A simple game.
+> A simple web application to make you concentrate on your classes.
 
-## Build Setup
+**For Nanchang University students ONLY!!!**
+
+## Build or Run
 
 ``` bash
 # install dependencies
@@ -18,4 +20,6 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## EULA & Rules
+
+Continuously updating...
