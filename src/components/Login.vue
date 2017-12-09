@@ -114,6 +114,7 @@
     padding-bottom: 0;
   }
   #submit {
+    font-size: 20px;
     margin-top: 32px;
     width: 100%;
     background: #00c0d2;
