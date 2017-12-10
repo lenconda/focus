@@ -14,7 +14,17 @@
       </el-row>
     </el-footer>
     <el-main>
-      Lorem ipsum
+      <div class="row-bg el-row is-justify-space-around el-row--flex">
+        <el-col :md="24" :xs="24" id="ranklist">
+          <template>
+            <el-table :data="tableData">
+              <el-table-column prop="date"></el-table-column>
+              <el-table-column prop="name"></el-table-column>
+              <el-table-column prop="address"></el-table-column>
+            </el-table>
+          </template>
+        </el-col>
+      </div>
       <!--<el-button @click="clearAllCookie">clearcookie</el-button>-->
     </el-main>
   </el-container>
@@ -44,6 +54,27 @@
             document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
         }
       }
+    },
+    data() {
+      return {
+        tableData: [{
+          date: '1',
+          name: '彭瀚林',
+          address: '233h'
+        },{
+          date: '2',
+          name: '易晟',
+          address: '123h'
+        },{
+          date: '3',
+          name: '万伟强',
+          address: '109h'
+        },{
+          date: '4',
+          name: '朱元哲',
+          address: '98h'
+        }]
+      }
     }
   }
 </script>
@@ -60,16 +91,20 @@
     display: inline-block;
     margin: 0 10px;
   }
+
   a {
     /*color: #42b983;*/
-    color: #333;
+    color: aliceblue;
     text-decoration: none;
   }
+
   .el-header, .el-footer {
-    /*background-color: #B3C0D1;*/
-    color: #333;
+    background-color: #00bcd4;
+    color: aliceblue;
     text-align: center;
-    line-height: 60px;
+    line-height: 58px;
+    box-shadow: 0 5px 5px 0 #0097ab;
+    padding: 0;
   }
 
   .el-main {
@@ -83,8 +118,20 @@
     margin-bottom: 40px;
   }
 
-
   #tab .active {
-    border-bottom: .1em solid #409eff;
+    border-bottom: .1em solid aliceblue;
+  }
+
+  #tab .el-col-8 {
+    padding: 0 .8em;
+  }
+
+  #ranklist {
+    background: aliceblue;
+    overflow: auto;
+    /*height: 100px;*/
+    width: 100%;
+    box-shadow: 0 5px 15px 0 #007d87;
+    border-radius: .3em;
   }
 </style>

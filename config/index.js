@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://65.49.212.163:3000',
+        target: 'http://focus.lenconda.top:3000',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

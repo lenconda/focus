@@ -15,7 +15,10 @@
     </el-footer>
     <el-main>
       <div class="circle">
-
+        <img src="static/img/clock.png" width="100%" height="100%" alt="">
+      </div>
+      <div class="start-end">
+        <el-button id="status-btn" type="primary">\{\{statusMsg\}\}</el-button>
       </div>
     </el-main>
   </el-container>
@@ -56,15 +59,17 @@
   }
   a {
     /*color: #42b983;*/
-    color: #333;
+    color: aliceblue;
     text-decoration: none;
   }
 
   .el-header, .el-footer {
-    /*background-color: #B3C0D1;*/
-    color: #333;
+    background-color: #00bcd4;
+    color: aliceblue;
     text-align: center;
-    line-height: 60px;
+    line-height: 57px;
+    box-shadow: 0 5px 5px 0 #0097ab;
+    padding: 0;
   }
 
   .el-main {
@@ -79,15 +84,32 @@
   }
 
   .circle {
-    background: #42b983;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    /*background: #42b983;*/
+    width: 162px;
+    height: 131px;
+    /*border-radius: 50%;*/
     margin: 0 auto;
     margin-top: 5em;
   }
 
   #tab .active {
-    border-bottom: .1em solid #409eff;
+    border-bottom: .1em solid aliceblue;
+  }
+
+  #tab .el-col-8 {
+    padding: 0 .8em;
+  }
+
+  .start-end {
+    margin-top: 5em;
+  }
+
+  #status-btn {
+    font-size: 20px;
+    margin-top: 32px;
+    width: 90%;
+    background: #0097ab;
+    border: none;
+    box-shadow: 0 5px 10px 0 #007d87;
   }
 </style>
