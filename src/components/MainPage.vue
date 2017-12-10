@@ -17,9 +17,13 @@
       <div class="circle">
         <img src="static/img/clock.png" width="100%" height="100%" alt="">
       </div>
-      <div class="field" style="margin-top: 2em;">
-        点击<span style="font-size: 23px;">开始</span><br>踏上你的专注之行
-      </div>
+      <el-row type="flex" class="row-bg" justify="space-around" style="margin-top: 2em">
+        <el-col :span="12">
+          <div>
+            <img src="static/img/banner.png" width="100%" alt="">
+          </div>
+        </el-col>
+      </el-row>
       <div class="start-end">
         <el-button id="status-btn" type="primary">\{\{statusMsg\}\}</el-button>
       </div>
@@ -31,6 +35,7 @@
   export default {
     name: "main-page",
     mounted() {
+      document.body.style.background = '#d4faff'
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
@@ -71,7 +76,7 @@
     color: aliceblue;
     text-align: center;
     line-height: 46px;
-    box-shadow: 0 2px 3px 0 #0097ab;
+    box-shadow: 0 2px 3px 0 #00788d;
     padding: 0;
   }
 
@@ -88,11 +93,11 @@
 
   .circle {
     /*background: #42b983;*/
-    width: 162px;
-    height: 131px;
+    width: 132px;
+    height: 132px;
     /*border-radius: 50%;*/
     margin: 0 auto;
-    margin-top: 5em;
+    margin-top: 3em;
   }
 
   #tab .active {
@@ -111,9 +116,9 @@
     font-size: 20px;
     margin-top: 32px;
     width: 90%;
-    background: #0097ab;
+    background: #6adbea;
     border: none;
-    box-shadow: 0 5px 10px 0 #007d87;
+    box-shadow: 0 2px 3px 0 #579cad;
   }
   .field {
     /*margin-top: 2em;*/
@@ -123,3 +128,4 @@
     margin: 0 auto;
   }
 </style>
+

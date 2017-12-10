@@ -42,6 +42,7 @@
   export default {
     name: "rank-list",
     mounted() {
+      document.body.style.background = '#d4faff';
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
@@ -67,15 +68,15 @@
       return {
         tableData: [{
           date: '1',
-          name: '朱元哲',
+          name: 'Lorem',
           address: '233h'
         },{
           date: '2',
-          name: '张甜甜',
+          name: 'Ipsum',
           address: '200h'
         },{
           date: '3',
-          name: '王珺',
+          name: 'Amet',
           address: '188h'
         }]
       }
@@ -135,7 +136,7 @@
     overflow: auto;
     /*height: 100px;*/
     width: 100%;
-    box-shadow: 0 2px 3px 0 #007d87;
+    box-shadow: 0 2px 3px 0 #a9c7cb;
     border-radius: .3em;
     /*border-bottom: 2px solid #dbdbdb;*/
   }
