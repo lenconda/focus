@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-footer>
+    <el-footer style="height: 48px;">
       <el-row id="tab">
         <el-col :span="8">
           <div><router-link :to="{ path: 'main' }">计时</router-link></div>
@@ -13,16 +13,24 @@
         </el-col>
       </el-row>
     </el-footer>
-    <el-main>
+    <el-main style="height: 640px; overflow: auto;">
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
-          <template>
-            <el-table :data="tableData">
-              <el-table-column prop="date"></el-table-column>
-              <el-table-column prop="name"></el-table-column>
-              <el-table-column prop="address"></el-table-column>
-            </el-table>
-          </template>
+          <el-table :data="tableData">
+            <el-table-column prop="date"></el-table-column>
+            <el-table-column prop="name"></el-table-column>
+            <el-table-column prop="address"></el-table-column>
+          </el-table>
+        </el-col>
+      </div>
+      <div style="height: 2em;"></div>
+      <div class="row-bg el-row is-justify-space-around el-row--flex">
+        <el-col :md="24" :xs="24" id="ranklist">
+          <el-table :data="tableData">
+            <el-table-column prop="date"></el-table-column>
+            <el-table-column prop="name"></el-table-column>
+            <el-table-column prop="address"></el-table-column>
+          </el-table>
         </el-col>
       </div>
       <!--<el-button @click="clearAllCookie">clearcookie</el-button>-->
@@ -63,16 +71,12 @@
           address: '233h'
         },{
           date: '2',
-          name: '易晟',
-          address: '123h'
+          name: '张甜甜',
+          address: '200h'
         },{
           date: '3',
-          name: '万伟强',
-          address: '109h'
-        },{
-          date: '4',
-          name: '彭瀚林',
-          address: '98h'
+          name: '王珺',
+          address: '188h'
         }]
       }
     }
@@ -102,8 +106,8 @@
     background-color: #00bcd4;
     color: aliceblue;
     text-align: center;
-    line-height: 58px;
-    box-shadow: 0 5px 5px 0 #0097ab;
+    line-height: 46px;
+    box-shadow: 0 2px 3px 0 #0097ab;
     padding: 0;
   }
 
@@ -131,7 +135,8 @@
     overflow: auto;
     /*height: 100px;*/
     width: 100%;
-    /*box-shadow: 0 5px 15px 0 #007d87;*/
+    box-shadow: 0 2px 3px 0 #007d87;
     border-radius: .3em;
+    /*border-bottom: 2px solid #dbdbdb;*/
   }
 </style>

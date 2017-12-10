@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-footer>
+    <el-footer style="height: 48px;">
       <el-row id="tab">
         <el-col :span="8">
           <div class="active"><p>计时</p></div>
@@ -13,9 +13,12 @@
         </el-col>
       </el-row>
     </el-footer>
-    <el-main>
+    <el-main style="height: 640px; overflow: auto;">
       <div class="circle">
         <img src="static/img/clock.png" width="100%" height="100%" alt="">
+      </div>
+      <div class="field" style="margin-top: 2em;">
+        点击<span style="font-size: 23px;">开始</span><br>踏上你的专注之行
       </div>
       <div class="start-end">
         <el-button id="status-btn" type="primary">\{\{statusMsg\}\}</el-button>
@@ -67,8 +70,8 @@
     background-color: #00bcd4;
     color: aliceblue;
     text-align: center;
-    line-height: 57px;
-    box-shadow: 0 5px 5px 0 #0097ab;
+    line-height: 46px;
+    box-shadow: 0 2px 3px 0 #0097ab;
     padding: 0;
   }
 
@@ -101,7 +104,7 @@
   }
 
   .start-end {
-    margin-top: 5em;
+    margin-top: 1em;
   }
 
   #status-btn {
@@ -111,5 +114,12 @@
     background: #0097ab;
     border: none;
     box-shadow: 0 5px 10px 0 #007d87;
+  }
+  .field {
+    /*margin-top: 2em;*/
+    font-size: 18px;
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
   }
 </style>
