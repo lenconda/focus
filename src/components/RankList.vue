@@ -59,7 +59,7 @@
       return {
         tableData: [{
           date: '1',
-          name: '彭瀚林',
+          name: '朱元哲',
           address: '233h'
         },{
           date: '2',
@@ -71,7 +71,7 @@
           address: '109h'
         },{
           date: '4',
-          name: '朱元哲',
+          name: '彭瀚林',
           address: '98h'
         }]
       }
@@ -131,7 +131,7 @@
     overflow: auto;
     /*height: 100px;*/
     width: 100%;
-    box-shadow: 0 5px 15px 0 #007d87;
+    /*box-shadow: 0 5px 15px 0 #007d87;*/
     border-radius: .3em;
   }
 </style>
