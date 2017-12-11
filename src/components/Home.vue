@@ -1,15 +1,20 @@
 <template>
   <el-container>
-    <el-footer style="height: 48px;">
+    <el-footer style="height: 9rem;">
       <el-row id="tab">
         <el-col :span="8">
           <div><router-link :to="{ path: 'main' }">计时</router-link></div>
         </el-col>
         <el-col :span="8">
-          <div class="active"><p>排行榜</p></div>
+          <div><router-link :to="{ path: 'ranklist' }">排行榜</router-link></div>
         </el-col>
         <el-col :span="8">
-          <div><router-link :to="{ path: 'home' }">我的</router-link></div>
+          <div class="active"><p>我的</p></div>
+        </el-col>
+      </el-row>
+      <el-row type="flex" class="row-bg" justify="space-around">
+        <el-col :span="4">
+          <img src="https://avatars3.githubusercontent.com/u/14010249?s=200&v=4" style="width: 100%; margin-top: 1em; border: 3px solid #a9c7cb; border-radius: 50%;" alt="">
         </el-col>
       </el-row>
     </el-footer>

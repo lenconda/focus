@@ -9,7 +9,7 @@
           <div><router-link :to="{ path: 'ranklist' }">排行榜</router-link></div>
         </el-col>
         <el-col :span="8">
-          <div><p>我的</p></div>
+          <div><router-link :to="{ path: 'home' }">我的</router-link></div>
         </el-col>
       </el-row>
     </el-footer>

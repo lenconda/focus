@@ -6,6 +6,7 @@ import Router from 'vue-router';
 import Login from '@/components/Login';
 import RankList from '@/components/RankList';
 import MainPage from '@/components/MainPage';
+import Home from '@/components/Home';
 
 Vue.use(Router);
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/ranklist',
       name: 'ranklist',
       component: RankList
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: Home
     }
   ]
 });
