@@ -24,8 +24,11 @@
           </div>
         </el-col>
       </el-row>
-      <div class="start-end">
-        <el-button id="status-btn" type="primary">\{\{statusMsg\}\}</el-button>
+      <div class="start-end" v-if="counting">
+        <el-button id="status-btn" type="primary" @click="stopCounting">停止计时</el-button>
+      </div>
+      <div class="start-end" v-else>
+        <el-button id="status-btn" type="primary" @click="startConuting">开启计时</el-button>
       </div>
     </el-main>
   </el-container>
@@ -48,6 +51,19 @@
         } else {
           return null;
         }
+      },
+      startConuting() {
+        this.counting = !this.counting;
+      },
+      stopCounting() {
+        this.counting = !this.counting;
+      }
+    },
+    data () {
+      return {
+        counting: false,
+        conterStatus: 'stopped',
+        classname: ''
       }
     }
   }

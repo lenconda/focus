@@ -25,7 +25,8 @@
             <el-table-column prop="date" width="100%" >
               <template slot-scope="scope">
                 <!--<i class="el-icon-time"></i>-->
-                <span style="margin-left: 10px">{{ scope.row.date }}</span>
+                <!--<i class="fa fa-address-card-o"></i>-->
+                <span style="margin-left: 10px; font-weight: bold;">{{ scope.row.date }}</span>
               </template>
             </el-table-column>
             <el-table-column prop="name"></el-table-column>
