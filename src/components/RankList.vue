@@ -14,22 +14,39 @@
       </el-row>
     </el-footer>
     <el-main style="height: 640px; overflow: auto;">
-      <div class="row-bg el-row is-justify-space-around el-row--flex">
-        <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="tableData">
-            <el-table-column prop="date"></el-table-column>
-            <el-table-column prop="name"></el-table-column>
-            <el-table-column prop="address"></el-table-column>
-          </el-table>
-        </el-col>
-      </div>
+      <!--<div class="row-bg el-row is-justify-space-around el-row&#45;&#45;flex">-->
+        <!--<el-col :md="24" :xs="24" id="ranklist">-->
+          <!--<el-table :data="tableData">-->
+            <!--<el-table-column prop="date"></el-table-column>-->
+            <!--<el-table-column prop="name"></el-table-column>-->
+            <!--<el-table-column prop="address"></el-table-column>-->
+          <!--</el-table>-->
+        <!--</el-col>-->
+      <!--</div>-->
       <div style="height: 2em;"></div>
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="tableData">
-            <el-table-column prop="date"></el-table-column>
+          <el-table :data="tableData" width="100%">
+            <el-table-column type="index"></el-table-column>
+            <el-table-column>
+              <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <!--<span style="margin-right: 10px">{{ scope.row.date }}</span>-->
+                <img src="https://avatars3.githubusercontent.com/u/14010249?s=200&v=4" height="22px;" style="margin-bottom: -8px; border-radius: 50%" alt="">
+              </template>
+            </el-table-column>
             <el-table-column prop="name"></el-table-column>
-            <el-table-column prop="address"></el-table-column>
+            <el-table-column>
+              <template slot-scope="scope">
+                <el-popover trigger="hover" placement="top">
+                  <p>姓名: {{ scope.row.name }}</p>
+                  <p>住址: {{ scope.row.address }}</p>
+                  <div slot="reference" class="name-wrapper">
+                    <el-tag size="medium">{{ scope.row.name }}</el-tag>
+                  </div>
+                </el-popover>
+              </template>
+            </el-table-column>
           </el-table>
         </el-col>
       </div>

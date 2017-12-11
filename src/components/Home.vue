@@ -21,24 +21,22 @@
     <el-main style="height: 640px; overflow: auto;">
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="tableData">
-            <el-table-column prop="date"></el-table-column>
+          <el-table :data="tableData" width="100%">
+            <el-table-column prop="date" width="100%" >
+              <template slot-scope="scope">
+                <!--<i class="el-icon-time"></i>-->
+                <span style="margin-left: 10px">{{ scope.row.date }}</span>
+              </template>
+            </el-table-column>
             <el-table-column prop="name"></el-table-column>
-            <el-table-column prop="address"></el-table-column>
-          </el-table>
-        </el-col>
-      </div>
-      <div style="height: 2em;"></div>
-      <div class="row-bg el-row is-justify-space-around el-row--flex">
-        <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="tableData">
-            <el-table-column prop="date"></el-table-column>
-            <el-table-column prop="name"></el-table-column>
-            <el-table-column prop="address"></el-table-column>
+            <!--<el-table-column prop="address"></el-table-column>-->
           </el-table>
         </el-col>
       </div>
       <!--<el-button @click="clearAllCookie">clearcookie</el-button>-->
+      <div class="logout">
+        <el-button id="logout-btn" type="primary">退出登录</el-button>
+      </div>
     </el-main>
   </el-container>
 </template>
@@ -72,15 +70,15 @@
     data() {
       return {
         tableData: [{
-          date: '1',
+          date: '姓名',
           name: 'Lorem',
           address: '233h'
         },{
-          date: '2',
+          date: '阿萨德',
           name: 'Ipsum',
           address: '200h'
         },{
-          date: '3',
+          date: '请问',
           name: 'Amet',
           address: '188h'
         }]
@@ -144,5 +142,18 @@
     box-shadow: 0 2px 3px 0 #a9c7cb;
     border-radius: .3em;
     /*border-bottom: 2px solid #dbdbdb;*/
+  }
+
+  .logout {
+    margin-top: 1em;
+  }
+
+  #logout-btn {
+    font-size: 20px;
+    margin-top: 32px;
+    width: 90%;
+    background: #6adbea;
+    border: none;
+    box-shadow: 0 2px 3px 0 #579cad;
   }
 </style>
