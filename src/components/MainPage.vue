@@ -42,6 +42,13 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
+      let _this = this;
+      window.addEventListener('focus', function () {
+        _this.startConuting();
+      });
+      window.addEventListener('blur', function () {
+        _this.stopCounting();
+      })
     },
     methods: {
       getCookie(name) {
@@ -53,10 +60,38 @@
         }
       },
       startConuting() {
-        this.counting = !this.counting;
+        this.$http.post('api/start', {userid: this.getCookie('username'), token: this.getCookie('token')}).then(response => {
+          if (response.body.status == 0) {
+            this.$notify.error({
+              title: '不可以开始计时哦',
+              message: '你现在处于下课状态，好好休息吧～'
+            });
+          } else if (response.body.status == 1) {
+            this.counting = true;
+          } else {
+            this.$notify.error({
+              title: '出错了哦',
+              message: '请检查你的网络，稍后再试哦QAQ'
+            });
+          }
+        })
       },
       stopCounting() {
-        this.counting = !this.counting;
+        this.$http.post('api/stop', {userid: this.getCookie('username'), token: this.getCookie('token')}).then(response => {
+          if (response.body.status == 0) {
+            this.$notify.error({
+              title: '出错了哦',
+              message: '请检查你的网络，稍后再试哦QAQ'
+            });
+          } else if (response.body.status == 1) {
+            this.counting = false;
+          } else {
+            this.$notify.error({
+              title: '出错了哦',
+              message: `错误 ${response.status}`
+            });
+          }
+        })
       }
     },
     data () {

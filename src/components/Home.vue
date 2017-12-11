@@ -36,7 +36,7 @@
       </div>
       <!--<el-button @click="clearAllCookie">clearcookie</el-button>-->
       <div class="logout">
-        <el-button id="logout-btn" type="primary">退出登录</el-button>
+        <el-button id="logout-btn" type="primary" @click="logOut">退出登录</el-button>
       </div>
     </el-main>
   </el-container>
@@ -50,6 +50,21 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
+      let _this = this;
+      window.addEventListener('focus', function () {
+        // alert(this.getCookie('username'));
+        _this.$http.get('api/start').then(res => {
+
+        });
+      });
+      window.addEventListener('blur', function () {
+        _this.$http.get('api/stop').then(res => {
+
+        });
+      });
+      _this.$http.post('api/userInfo').then(response => {
+        _this.userInfo = response.body.info;
+      })
     },
     methods: {
       getCookie(name) {
@@ -59,6 +74,11 @@
         } else {
           return null;
         }
+      },
+      logOut() {
+        this.clearAllCookie();
+        window.location.href = '#/login';
+        window.location.reload();
       },
       clearAllCookie() {
         var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
@@ -70,7 +90,7 @@
     },
     data() {
       return {
-        tableData: [{
+        userInfo: [{
           date: '姓名',
           name: 'Lorem',
           address: '233h'

@@ -47,6 +47,7 @@
   export default {
     name: "login",
     mounted() {
+      // window.location.reload();
       this.$notify({
         title: '温馨提示',
         message: '出于安全考虑，用户名或密码输入错误达到5次将会被冻结账户！',

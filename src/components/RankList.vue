@@ -14,15 +14,6 @@
       </el-row>
     </el-footer>
     <el-main style="height: 640px; overflow: auto;">
-      <!--<div class="row-bg el-row is-justify-space-around el-row&#45;&#45;flex">-->
-        <!--<el-col :md="24" :xs="24" id="ranklist">-->
-          <!--<el-table :data="tableData">-->
-            <!--<el-table-column prop="date"></el-table-column>-->
-            <!--<el-table-column prop="name"></el-table-column>-->
-            <!--<el-table-column prop="address"></el-table-column>-->
-          <!--</el-table>-->
-        <!--</el-col>-->
-      <!--</div>-->
       <div style="height: 2em;"></div>
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
@@ -63,6 +54,21 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
+      let _this = this;
+      window.addEventListener('focus', function () {
+        // alert(this.getCookie('username'));
+        _this.$http.get('api/start').then(res => {
+
+        });
+      });
+      window.addEventListener('blur', function () {
+        _this.$http.get('api/stop').then(res => {
+
+        });
+      });
+      _this.$http.get('api/ranklist').then(response => {
+        _this.tableData = response.body.rankList;
+      })
     },
     methods: {
       getCookie(name) {
