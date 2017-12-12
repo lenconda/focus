@@ -61,6 +61,7 @@
             });
           } else if (response.body.status == 1) {
             this.counting = true;
+            document.cookie = 'counting=1';
           } else {
             this.$notify.error({
               title: '出错了哦',
@@ -78,6 +79,7 @@
             });
           } else if (response.body.status == 1) {
             this.counting = false;
+            document.cookie = 'counting=0';
           } else {
             this.$notify.error({
               title: '出错了哦',

@@ -80,6 +80,7 @@
             // });
             document.cookie = `token=passport ${response.body.token}`;
             document.cookie = `username=${this.formLabelAlign.name}`;
+            document.cookie = `counting=0`;
             Vue.http.headers.common.Authorization = `passport ${response.body.token}`;
             window.location.href = '#/main';
           }

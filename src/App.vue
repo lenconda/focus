@@ -23,15 +23,18 @@
       }
       let _this = this;
       window.addEventListener('focus', function () {
-        // alert(this.getCookie('username'));
-        _this.$http.get('static/api/test.php?action=focus').then(res => {
+        if (_this.getCookie('counting') == '1') {
+          _this.$http.get('static/api/test.php?action=focus').then(res => {});
+        } else {
 
-        });
+        }
       });
       window.addEventListener('blur', function () {
-        _this.$http.get('static/api/test.php?action=blur').then(res => {
+        if (_this.getCookie('counting') == '1') {
+          _this.$http.get('static/api/test.php?action=blur').then(res => {});
+        } else {
 
-        });
+        }
       });
     },
     methods: {

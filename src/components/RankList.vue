@@ -21,8 +21,6 @@
             <el-table-column type="index"></el-table-column>
             <el-table-column>
               <template slot-scope="scope">
-                <!--<i class="el-icon-time"></i>-->
-                <!--<span style="margin-right: 10px">{{ scope.row.date }}</span>-->
                 <img src="https://avatars3.githubusercontent.com/u/14010249?s=200&v=4" height="22px;" style="margin-bottom: -8px; border-radius: 50%" alt="">
               </template>
             </el-table-column>
@@ -41,7 +39,6 @@
           </el-table>
         </el-col>
       </div>
-      <!--<el-button @click="clearAllCookie">clearcookie</el-button>-->
     </el-main>
   </el-container>
 </template>
