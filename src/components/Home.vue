@@ -50,20 +50,8 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
-      let _this = this;
-      window.addEventListener('focus', function () {
-        // alert(this.getCookie('username'));
-        _this.$http.get('api/start').then(res => {
-
-        });
-      });
-      window.addEventListener('blur', function () {
-        _this.$http.get('api/stop').then(res => {
-
-        });
-      });
-      _this.$http.post('api/userInfo').then(response => {
-        _this.userInfo = response.body.info;
+      this.$http.post('api/userInfo').then(response => {
+        this.userInfo = response.body.info;
       })
     },
     methods: {

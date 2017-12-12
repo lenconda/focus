@@ -1,3 +1,13 @@
 .el-button--primary {
   background: coral;
 }
+
+#lists tr:first-child {
+  background: oldlace;
+}
+#lists tr:nth-child(2) {
+  background: #f0f9eb;
+}
+#lists tr:nth-child(3) {
+  background: #e9eef3;
+}

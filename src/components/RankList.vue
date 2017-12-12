@@ -17,7 +17,7 @@
       <div style="height: 2em;"></div>
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="tableData" width="100%">
+          <el-table :data="tableData" width="100%" id="lists">
             <el-table-column type="index"></el-table-column>
             <el-table-column>
               <template slot-scope="scope">
@@ -54,20 +54,8 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
-      let _this = this;
-      window.addEventListener('focus', function () {
-        // alert(this.getCookie('username'));
-        _this.$http.get('api/start').then(res => {
-
-        });
-      });
-      window.addEventListener('blur', function () {
-        _this.$http.get('api/stop').then(res => {
-
-        });
-      });
-      _this.$http.get('api/ranklist').then(response => {
-        _this.tableData = response.body.rankList;
+      this.$http.get('api/ranklist').then(response => {
+        this.tableData = response.body.rankList;
       })
     },
     methods: {
@@ -97,6 +85,26 @@
           date: '2',
           name: 'Ipsum',
           address: '200h'
+        },{
+          date: '3',
+          name: 'Amet',
+          address: '188h'
+        },{
+          date: '3',
+          name: 'Amet',
+          address: '188h'
+        },{
+          date: '3',
+          name: 'Amet',
+          address: '188h'
+        },{
+          date: '3',
+          name: 'Amet',
+          address: '188h'
+        },{
+          date: '3',
+          name: 'Amet',
+          address: '188h'
         },{
           date: '3',
           name: 'Amet',

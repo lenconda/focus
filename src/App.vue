@@ -21,18 +21,18 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
-      // let _this = this;
-      // window.addEventListener('focus', function () {
-      //   // alert(this.getCookie('username'));
-      //   _this.$http.get('static/api/test.php?action=focus').then(res => {
-      //
-      //   });
-      // });
-      // window.addEventListener('blur', function () {
-      //   _this.$http.get('static/api/test.php?action=blur').then(res => {
-      //
-      //   });
-      // });
+      let _this = this;
+      window.addEventListener('focus', function () {
+        // alert(this.getCookie('username'));
+        _this.$http.get('static/api/test.php?action=focus').then(res => {
+
+        });
+      });
+      window.addEventListener('blur', function () {
+        _this.$http.get('static/api/test.php?action=blur').then(res => {
+
+        });
+      });
     },
     methods: {
       isWeChat() {

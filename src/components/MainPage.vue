@@ -42,13 +42,6 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
-      let _this = this;
-      window.addEventListener('focus', function () {
-        _this.startConuting();
-      });
-      window.addEventListener('blur', function () {
-        _this.stopCounting();
-      })
     },
     methods: {
       getCookie(name) {
