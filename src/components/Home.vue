@@ -24,17 +24,13 @@
           <el-table :data="tableData" width="100%">
             <el-table-column prop="date" width="100%" >
               <template slot-scope="scope">
-                <!--<i class="el-icon-time"></i>-->
-                <!--<i class="fa fa-address-card-o"></i>-->
                 <span style="margin-left: 10px; font-weight: bold;">{{ scope.row.date }}</span>
               </template>
             </el-table-column>
             <el-table-column prop="name"></el-table-column>
-            <!--<el-table-column prop="address"></el-table-column>-->
           </el-table>
         </el-col>
       </div>
-      <!--<el-button @click="clearAllCookie">clearcookie</el-button>-->
       <div class="logout">
         <el-button id="logout-btn" type="primary" @click="logOut">退出登录</el-button>
       </div>

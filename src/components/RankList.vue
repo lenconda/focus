@@ -17,26 +17,21 @@
       <div style="height: 2em;"></div>
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="tableData" width="100%" id="lists">
-            <el-table-column type="index"></el-table-column>
-            <el-table-column>
-              <template slot-scope="scope">
-                <img src="https://avatars3.githubusercontent.com/u/14010249?s=200&v=4" height="22px;" style="margin-bottom: -8px; border-radius: 50%" alt="">
-              </template>
-            </el-table-column>
-            <el-table-column prop="name"></el-table-column>
-            <el-table-column>
-              <template slot-scope="scope">
-                <el-popover trigger="hover" placement="top">
-                  <p>姓名: {{ scope.row.name }}</p>
-                  <p>住址: {{ scope.row.address }}</p>
-                  <div slot="reference" class="name-wrapper">
-                    <el-tag size="medium">{{ scope.row.name }}</el-tag>
-                  </div>
-                </el-popover>
-              </template>
-            </el-table-column>
-          </el-table>
+          <ul class="rank-list">
+            <li v-for="(rows, index) in tableData">
+              <div class="paiming">{{ index + 1 }}</div>
+              <div class="avatar">
+                <img src="https://avatars0.githubusercontent.com/u/9963587?s=460&v=4" alt="" height="40px" style="border-radius: 50%;">
+              </div>
+              <div class="info">
+                <div class="name-field">{{ rows.name }}</div>
+                <div class="total-time">{{ rows.address }} / {{ rows.address }}</div>
+              </div>
+              <div class="achievements">
+                {{ rows.address }}
+              </div>
+            </li>
+          </ul>
         </el-col>
       </div>
     </el-main>
@@ -167,5 +162,71 @@
     box-shadow: 0 2px 3px 0 #a9c7cb;
     border-radius: .3em;
     /*border-bottom: 2px solid #dbdbdb;*/
+  }
+  .rank-list li {
+    display: block;
+    height: 4rem;
+    padding-top: 5px;
+    box-sizing: padding-box;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .rank-list li div {
+    float: left;
+  }
+  .rank-list li:first-child .paiming {
+    color: transparent;
+    background: url("../../static/img/first.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  .rank-list li:nth-child(2) .paiming {
+    color: transparent;
+    background: url("../../static/img/second.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  .rank-list li:nth-child(3) .paiming {
+    color: transparent;
+    background: url("../../static/img/third.png") no-repeat;
+    background-size: 100% 100%;
+  }
+  .rank-list li .paiming {
+    /*line-height: 4rem;*/
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+  }
+  .rank-list li .paiming_alt {
+    line-height: 4rem;
+    display: block;
+    width: auto;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+  }
+  .info {
+    margin-top: .5rem;
+  }
+  .name-field {
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    clear: both;
+  }
+  .total-time {
+    margin-top: .2rem;
+    clear: both;
+    font-size: .8rem;
+    color: gray;
+    margin-left: 1rem;
+  }
+  .avatar {
+    margin-left: 1rem;
+    margin-top: .5rem;
+  }
+  .achievements {
+    font-size: 1.1rem;
+    line-height: 4rem;
+    margin-left: 2rem;
   }
 </style>
