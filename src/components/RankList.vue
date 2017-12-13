@@ -21,7 +21,7 @@
             <li v-for="(rows, index) in tableData">
               <div class="paiming">{{ index + 1 }}</div>
               <div class="avatar">
-                <img src="https://avatars0.githubusercontent.com/u/9963587?s=460&v=4" alt="" height="40px" style="border-radius: 50%;">
+                <img :src="['../../static/img/avatar/' + rows.date + '.png']" alt="" height="40px" style="border-radius: 50%;">
               </div>
               <div class="info">
                 <div class="name-field">{{ rows.name }}</div>
@@ -188,6 +188,7 @@
     color: transparent;
     background: url("../../static/img/third.png") no-repeat;
     background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
   }
   .rank-list li .paiming {
     /*line-height: 4rem;*/
