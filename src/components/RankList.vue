@@ -19,17 +19,40 @@
         <el-col :md="24" :xs="24" id="ranklist">
           <ul class="rank-list">
             <li v-for="(rows, index) in tableData">
-              <div class="paiming">{{ index + 1 }}</div>
-              <div class="avatar">
-                <img :src="['../../static/img/avatar/' + rows.date + '.png']" alt="" height="40px" style="border-radius: 50%;">
-              </div>
-              <div class="info">
-                <div class="name-field">{{ rows.name }}</div>
-                <div class="total-time">{{ rows.address }} / {{ rows.address }}</div>
-              </div>
-              <div class="achievements">
-                {{ rows.address }}
-              </div>
+              <!--<div class="paiming">{{ index + 1 }}</div>-->
+              <!--<div class="avatar">-->
+                <!--<img :src="['../../static/img/avatar/' + rows.avatar + '.png']" alt="" height="40px" style="border-radius: 50%;">-->
+              <!--</div>-->
+              <!--<div class="info">-->
+                <!--<div class="name-field">{{ rows.name }}</div>-->
+                <!--<div class="total-time">{{ rows.total_study }} / {{ rows.total_time }}</div>-->
+              <!--</div>-->
+              <!--<div class="achievements">-->
+                <!--{{ rows.percentage }}-->
+              <!--</div>-->
+              <el-row style="width: 100%">
+                <el-col :span="4">
+                  <div class="paiming">
+                    {{ index + 1 }}
+                  </div>
+                </el-col>
+                <el-col :span="4">
+                  <div class="avatar">
+                    <img :src="['../../static/img/avatar/' + rows.avatar + '.png']" alt="" height="40px" style="border-radius: 50%;">
+                  </div>
+                </el-col>
+                <el-col :span="8">
+                  <div class="info">
+                    <div class="name-field">{{ rows.name }}</div>
+                    <div class="total-time">{{ rows.total_study }}h / {{ rows.total_time }}h</div>
+                  </div>
+                </el-col>
+                <el-col :span="8">
+                  <div class="achievements">
+                    {{ rows.percentage }}
+                  </div>
+                </el-col>
+              </el-row>
             </li>
           </ul>
         </el-col>
@@ -47,7 +70,7 @@
         window.location.href = '#/login';
       }
       this.$http.get('api/ranklist').then(response => {
-        this.tableData = response.body.rankList;
+        this.tableData = response.body;
       })
     },
     methods: {
@@ -69,39 +92,7 @@
     },
     data() {
       return {
-        tableData: [{
-          date: '1',
-          name: 'Lorem',
-          address: '233h'
-        },{
-          date: '2',
-          name: 'Ipsum',
-          address: '200h'
-        },{
-          date: '3',
-          name: 'Amet',
-          address: '188h'
-        },{
-          date: '3',
-          name: 'Amet',
-          address: '188h'
-        },{
-          date: '3',
-          name: 'Amet',
-          address: '188h'
-        },{
-          date: '3',
-          name: 'Amet',
-          address: '188h'
-        },{
-          date: '3',
-          name: 'Amet',
-          address: '188h'
-        },{
-          date: '3',
-          name: 'Amet',
-          address: '188h'
-        }]
+        tableData: []
       }
     }
   }
@@ -177,7 +168,7 @@
   .rank-list li .paiming {
     display: block;
     height: 1.5rem;
-    width: 2.3rem;
+    width: 100%;
     margin-top: 1.5rem;
     margin-left: .6rem;
     font-size: 11px;
@@ -209,22 +200,26 @@
     -moz-background-size: 100% 100%;
   }
   .info {
+    width: 100%;
     margin-top: .5rem;
   }
   .name-field {
-    font-size: 1.4rem;
+    width: 100%;
+    font-size: 1.2rem;
     margin-left: 1rem;
     clear: both;
+    width: 100%;
   }
   .total-time {
     margin-top: .2rem;
     clear: both;
+    width: 100%;
     font-size: .8rem;
     color: gray;
     margin-left: 1rem;
   }
   .avatar {
-    margin-left: 1rem;
+    margin-left: .5rem;
     margin-top: .5rem;
   }
   .achievements {

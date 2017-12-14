@@ -14,20 +14,20 @@
       </el-row>
       <el-row type="flex" class="row-bg" justify="space-around">
         <el-col :span="4">
-          <img src="https://avatars3.githubusercontent.com/u/14010249?s=200&v=4" style="width: 100%; margin-top: 1em; border: 3px solid #a9c7cb; border-radius: 50%;" alt="">
+          <img :src="['../../static/img/avatar/' + this.avatar + '.png']" style="width: 100%; margin-top: 1em; border: 3px solid #a9c7cb; border-radius: 50%;" alt="">
         </el-col>
       </el-row>
     </el-footer>
     <el-main style="height: 640px; overflow: auto;">
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="tableData" width="100%">
+          <el-table :data="userInfo" width="100%">
             <el-table-column prop="date" width="100%" >
               <template slot-scope="scope">
-                <span style="margin-left: 10px; font-weight: bold;">{{ scope.row.date }}</span>
+                <span style="margin-left: 10px; font-weight: bold;">{{ scope.row.key }}</span>
               </template>
             </el-table-column>
-            <el-table-column prop="name"></el-table-column>
+            <el-table-column prop="value"></el-table-column>
           </el-table>
         </el-col>
       </div>
@@ -46,8 +46,9 @@
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
-      this.$http.post('api/userInfo').then(response => {
-        this.userInfo = response.body.info;
+      this.$http.post('api/profile', {userid: this.getCookie('username')}).then(response => {
+        this.userInfo = response.body.profile;
+        this.avatar = response.body.avatar;
       })
     },
     methods: {
@@ -74,19 +75,8 @@
     },
     data() {
       return {
-        userInfo: [{
-          date: '姓名',
-          name: 'Lorem',
-          address: '233h'
-        },{
-          date: '阿萨德',
-          name: 'Ipsum',
-          address: '200h'
-        },{
-          date: '请问',
-          name: 'Amet',
-          address: '188h'
-        }]
+        avatar: '',
+        userInfo: []
       }
     }
   }

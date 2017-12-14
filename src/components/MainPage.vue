@@ -54,12 +54,12 @@
       },
       startConuting() {
         this.$http.post('api/start', {userid: this.getCookie('username'), token: this.getCookie('token')}).then(response => {
-          if (response.body.status == 0) {
+          if (response.body.status == 1) {
             this.$notify.error({
               title: '不可以开始计时哦',
               message: '你现在处于下课状态，好好休息吧～'
             });
-          } else if (response.body.status == 1) {
+          } else if (response.body.status == 0) {
             this.counting = true;
             document.cookie = 'counting=1';
           } else {
@@ -72,12 +72,12 @@
       },
       stopCounting() {
         this.$http.post('api/stop', {userid: this.getCookie('username'), token: this.getCookie('token')}).then(response => {
-          if (response.body.status == 0) {
+          if (response.body.status == 1) {
             this.$notify.error({
               title: '出错了哦',
               message: '请检查你的网络，稍后再试哦QAQ'
             });
-          } else if (response.body.status == 1) {
+          } else if (response.body.status == 0) {
             this.counting = false;
             document.cookie = 'counting=0';
           } else {

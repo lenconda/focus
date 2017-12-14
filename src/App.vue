@@ -28,7 +28,7 @@
       let _this = this;
       window.addEventListener('focus', function () {
         if (_this.getCookie('counting') == '1') {
-          _this.$http.get('static/api/test.php?action=focus').then(res => {
+          _this.$http.post('api/start', {userid: _this.getCookie('username'), token: _this.getCookie('token')}).then(res => {
             if (res.status == 200) {
               this.$notify.success({
                 title: '计时继续',
@@ -40,7 +40,7 @@
       });
       window.addEventListener('blur', function () {
         if (_this.getCookie('counting') == '1') {
-          _this.$http.get('static/api/test.php?action=blur').then(res => {});
+          _this.$http.post('api/stop', {userid: _this.getCookie('username'), token: _this.getCookie('token')}).then(res => {});
         } else {
 
         }
