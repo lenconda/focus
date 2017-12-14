@@ -14,16 +14,17 @@
       </el-row>
       <el-row type="flex" class="row-bg" justify="space-around">
         <el-col :span="4">
-          <img :src="['../../static/img/avatar/' + this.avatar + '.png']" style="width: 100%; margin-top: 1em; border: 3px solid #a9c7cb; border-radius: 50%;" alt="">
+          <img :src="['../../static/img/avatar/' + this.avatar + '.png']" style="height: 60px; margin-top: 1em; border: 3px solid #a9c7cb; border-radius: 50%;" alt="">
         </el-col>
       </el-row>
     </el-footer>
-    <el-main style="height: 640px; overflow: auto;">
+    <el-main style="height: 640px; overflow: auto; padding: 0;">
       <div class="row-bg el-row is-justify-space-around el-row--flex">
         <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="userInfo" width="100%">
-            <el-table-column prop="date" width="100%" >
+          <el-table :data="userInfo" width="100" style="text-align: left">
+            <el-table-column prop="date" width="120">
               <template slot-scope="scope">
+                <img src="https://avatars1.githubusercontent.com/u/17466332?s=70&v=4" width="16px" alt="">
                 <span style="margin-left: 10px; font-weight: bold;">{{ scope.row.key }}</span>
               </template>
             </el-table-column>
