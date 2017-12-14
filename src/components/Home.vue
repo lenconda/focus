@@ -116,7 +116,7 @@
     color: aliceblue;
     text-align: center;
     line-height: 46px;
-    box-shadow: 0 2px 3px 0 #0097ab;
+    box-shadow: 0 2px 3px 0 #00788d;
     padding: 0;
   }
 

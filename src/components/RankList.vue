@@ -131,7 +131,7 @@
     color: aliceblue;
     text-align: center;
     line-height: 46px;
-    box-shadow: 0 2px 3px 0 #0097ab;
+    box-shadow: 0 2px 3px 0 #00788d;
     padding: 0;
   }
 
@@ -174,37 +174,39 @@
   .rank-list li div {
     float: left;
   }
+  .rank-list li .paiming {
+    display: block;
+    height: 1.5rem;
+    width: 2.3rem;
+    margin-top: 1.5rem;
+    margin-left: .6rem;
+    font-size: 11px;
+    color: gray;
+  }
   .rank-list li:first-child .paiming {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .5rem;
     color: transparent;
     background: url("../../static/img/first.png") no-repeat;
     background-size: 100% 100%;
   }
   .rank-list li:nth-child(2) .paiming {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .5rem;
     color: transparent;
     background: url("../../static/img/second.png") no-repeat;
     background-size: 100% 100%;
   }
   .rank-list li:nth-child(3) .paiming {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .5rem;
     color: transparent;
     background: url("../../static/img/third.png") no-repeat;
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
-  }
-  .rank-list li .paiming {
-    /*line-height: 4rem;*/
-    display: block;
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    font-size: 1.3rem;
-  }
-  .rank-list li .paiming_alt {
-    line-height: 4rem;
-    display: block;
-    width: auto;
-    margin-left: 1rem;
-    font-size: 1.3rem;
   }
   .info {
     margin-top: .5rem;
