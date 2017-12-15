@@ -63,7 +63,7 @@ def profile_post():
     info['profile']['gender'] = extrainfo['gender'];
     info['profile']['school'] = extrainfo['school'];
     info['profile']['total_time'] = round(extrainfo['total_time'] / 3600.0, 1);
-    info['profile']['total_study'] round(extrainfo['total_study'] / 3600.0, 1);
+    info['profile']['total_study'] = round(extrainfo['total_study'] / 3600.0, 1);
     info['profile']['rank'] = user.chaxunmingci();
     info['profile']['percentage'] = round(extrainfo['percentage'] * 100, 4);
     return pack(json.dumps(info));
