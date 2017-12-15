@@ -24,8 +24,8 @@
           <el-row width="100%">
             <el-col :span="10" :offset="3">
               <el-row>
-                <el-col :span="10" style="text-align: left">{{ name }}</el-col>
-                <el-col :span="3" :offset="1">{{ gender }}<!--<img src="['static/img/' + this.gender + '.png']" alt="" height="100%">--></el-col>
+                <el-col :span="10" style="text-align: left; width: auto; padding-right: 4px;">{{ name }}</el-col>
+                <el-col :span="3"><img :src="['static/img/' + this.gender + '.png']" alt="" height="14px" style="margin-top: 6px;"></el-col>
               </el-row>
             </el-col>
           </el-row>
@@ -39,25 +39,25 @@
           <ul>
             <li style="border-bottom: 1.5px solid #e3e3e3">
               <el-row style="width: 100%; background: #d4faff;" class="info">
-                <el-col :span="12" style="color: #000;" class="info-key">我的排名</el-col>
+                <el-col :span="12" style="color: #000;" class="info-key"><img src="../../static/img/rank.png" style="margin-right: 4px;" height="16px;" alt=""> 我的排名</el-col>
                 <el-col :span="12" style="color: #000;" class="info-value">NO.{{ rank }}</el-col>
               </el-row>
             </li>
             <li>
               <el-row style="width: 100%;" class="info">
-                <el-col :span="12" style="color: #000;" class="info-key">学习时间</el-col>
+                <el-col :span="12" style="color: #000;" class="info-key"><img src="../../static/img/study.png" style="margin-right: 4px;" height="16px;" alt=""> 学习时间</el-col>
                 <el-col :span="12" style="color: #000;" class="info-value">{{ total_study }}</el-col>
               </el-row>
             </li>
             <li>
               <el-row style="width: 100%;" class="info">
-                <el-col :span="12" style="color: #000;" class="info-key">总时间</el-col>
+                <el-col :span="12" style="color: #000;" class="info-key"><img src="../../static/img/total.png" style="margin-right: 4px;" height="16px;" alt=""> 总时间</el-col>
                 <el-col :span="12" style="color: #000;" class="info-value">{{ total_time }}</el-col>
               </el-row>
             </li>
             <li>
               <el-row style="width: 100%;" class="info">
-                <el-col :span="12" style="color: #000;" class="info-key">分数</el-col>
+                <el-col :span="12" style="color: #000;" class="info-key"><img src="../../static/img/achievement.png" style="margin-right: 4px;" height="16px;" alt=""> 分数</el-col>
                 <el-col :span="12" style="color: #000;" class="info-value">{{ percentage }}</el-col>
               </el-row>
             </li>
