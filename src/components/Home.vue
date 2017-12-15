@@ -12,26 +12,58 @@
           <div class="active"><p>我的</p></div>
         </el-col>
       </el-row>
-      <el-row type="flex" class="row-bg" justify="space-around">
-        <el-col :span="4">
-          <img :src="['../../static/img/avatar/' + this.avatar + '.png']" style="height: 60px; margin-top: 1em; border: 3px solid #a9c7cb; border-radius: 50%;" alt="">
+      <el-row>
+        <el-col :span="4" :offset="3">
+          <img :src="['../../static/img/avatar/' + this.avatar + '.png']" style="height: 70px; margin-top: 1em; border: 3px solid #d4faff; border-radius: 50%;" alt="">
         </el-col>
       </el-row>
     </el-footer>
     <el-main style="height: 640px; overflow: auto; padding: 0;">
-      <div class="row-bg el-row is-justify-space-around el-row--flex">
-        <el-col :md="24" :xs="24" id="ranklist">
-          <el-table :data="userInfo" width="100" style="text-align: left">
-            <el-table-column prop="date" width="120">
-              <template slot-scope="scope">
-                <img src="https://avatars1.githubusercontent.com/u/17466332?s=70&v=4" width="16px" alt="">
-                <span style="margin-left: 10px; font-weight: bold;">{{ scope.row.key }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column prop="value"></el-table-column>
-          </el-table>
-        </el-col>
-      </div>
+      <el-row>
+        <el-row style="width: 100%;" class="avatar-field">
+          <el-row width="100%">
+            <el-col :span="4" :offset="3">
+              <el-row>
+                <el-col :span="20">{{ name }}</el-col>
+                <el-col :span="3" :offset="1">{{ gender }}<!--<img src="['static/img/' + this.gender + '.png']" alt="" height="100%">--></el-col>
+              </el-row>
+            </el-col>
+          </el-row>
+          <el-row style="font-size: 12px; color: #bfd4d7">
+            <el-col :span="10" :offset="3">
+              <span>{{ school }}</span> · <span>{{ userid }}</span>
+            </el-col>
+          </el-row>
+        </el-row>
+        <el-row :md="24" :xs="24" id="ranklist">
+          <ul>
+            <li style="border-bottom: 1.5px solid #e3e3e3">
+              <el-row style="width: 100%; background: #d4faff;" class="info">
+                <el-col :span="12" style="color: #000;" class="info-key">我的排名</el-col>
+                <el-col :span="12" style="color: #000;" class="info-value">NO.{{ rank }}</el-col>
+              </el-row>
+            </li>
+            <li>
+              <el-row style="width: 100%;" class="info">
+                <el-col :span="12" style="color: #000;" class="info-key">学习时间</el-col>
+                <el-col :span="12" style="color: #000;" class="info-value">{{ total_study }}</el-col>
+              </el-row>
+            </li>
+            <li>
+              <el-row style="width: 100%;" class="info">
+                <el-col :span="12" style="color: #000;" class="info-key">总时间</el-col>
+                <el-col :span="12" style="color: #000;" class="info-value">{{ total_time }}</el-col>
+              </el-row>
+            </li>
+            <li>
+              <el-row style="width: 100%;" class="info">
+                <el-col :span="12" style="color: #000;" class="info-key">分数</el-col>
+                <el-col :span="12" style="color: #000;" class="info-value">{{ percentage }}</el-col>
+              </el-row>
+            </li>
+          </ul>
+        </el-row>
+      </el-row>
       <div class="logout">
         <el-button id="logout-btn" type="primary" @click="logOut">退出登录</el-button>
       </div>
@@ -43,13 +75,20 @@
   export default {
     name: "rank-list",
     mounted() {
-      document.body.style.background = '#d4faff';
+      document.body.style.background = '#fff';
       if (this.getCookie('username') == null) {
         window.location.href = '#/login';
       }
       this.$http.post('api/profile', {userid: this.getCookie('username')}).then(response => {
-        this.userInfo = response.body.profile;
         this.avatar = response.body.avatar;
+        this.gender = response.body.profile.gender;
+        this.name = response.body.profile.name;
+        this.percentage = response.body.profile.percentage;
+        this.rank = response.body.profile.rank;
+        this.school = response.body.profile.school;
+        this.total_study = response.body.profile.total_study;
+        this.total_time = response.body.profile.total_time;
+        this.userid = response.body.profile.userid;
       })
     },
     methods: {
@@ -77,7 +116,14 @@
     data() {
       return {
         avatar: '',
-        userInfo: []
+        gender: '',
+        name: '',
+        percentage: '',
+        rank: '',
+        school: '',
+        total_study: '',
+        total_time: '',
+        userid: ''
       }
     }
   }
@@ -92,8 +138,8 @@
     padding: 0;
   }
   li {
-    display: inline-block;
-    margin: 0 10px;
+    display: block;
+    margin: 0;
   }
 
   a {
@@ -107,7 +153,7 @@
     color: aliceblue;
     text-align: center;
     line-height: 46px;
-    box-shadow: 0 2px 3px 0 #00788d;
+    /*box-shadow: 0 2px 3px 0 #00788d;*/
     padding: 0;
   }
 
@@ -135,11 +181,10 @@
     overflow: auto;
     /*height: 100px;*/
     width: 100%;
-    box-shadow: 0 2px 3px 0 #a9c7cb;
+    /*box-shadow: 0 2px 3px 0 #a9c7cb;*/
     border-radius: .3em;
     /*border-bottom: 2px solid #dbdbdb;*/
   }
-
   .logout {
     margin-top: 1em;
   }
@@ -147,9 +192,27 @@
   #logout-btn {
     font-size: 20px;
     margin-top: 32px;
-    width: 90%;
+    width: 60%;
     background: #6adbea;
     border: none;
     box-shadow: 0 2px 3px 0 #579cad;
+  }
+  .info {
+    height: 3.2rem;
+    line-height: 3.2rem;
+    background: #fff;
+    margin: 0;
+    /*border-bottom:;*/
+  }
+  .info .info-key {
+    text-align: left;
+    padding-left: 3rem;
+  }
+  .info .info-value {
+    text-align: right;
+    padding-right: 2rem;
+  }
+  .avatar-field {
+    height: 4rem;
   }
 </style>

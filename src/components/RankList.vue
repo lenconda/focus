@@ -19,17 +19,6 @@
         <el-col :md="24" :xs="24" id="ranklist">
           <ul class="rank-list">
             <li v-for="(rows, index) in tableData">
-              <!--<div class="paiming">{{ index + 1 }}</div>-->
-              <!--<div class="avatar">-->
-                <!--<img :src="['../../static/img/avatar/' + rows.avatar + '.png']" alt="" height="40px" style="border-radius: 50%;">-->
-              <!--</div>-->
-              <!--<div class="info">-->
-                <!--<div class="name-field">{{ rows.name }}</div>-->
-                <!--<div class="total-time">{{ rows.total_study }} / {{ rows.total_time }}</div>-->
-              <!--</div>-->
-              <!--<div class="achievements">-->
-                <!--{{ rows.percentage }}-->
-              <!--</div>-->
               <el-row style="width: 100%">
                 <el-col :span="4">
                   <div class="paiming">
