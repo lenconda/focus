@@ -12,7 +12,7 @@
           <div class="active"><p>我的</p></div>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row style="background: url(../../static/img/banner-home.png); background-size: 100% 100%;">
         <el-col :span="4" :offset="3">
           <img :src="['../../static/img/avatar/' + this.avatar + '.png']" style="height: 70px; margin-top: 1em; border: 3px solid #d4faff; border-radius: 50%;" alt="">
         </el-col>
@@ -22,15 +22,15 @@
       <el-row>
         <el-row style="width: 100%;" class="avatar-field">
           <el-row width="100%">
-            <el-col :span="4" :offset="3">
+            <el-col :span="10" :offset="3">
               <el-row>
-                <el-col :span="20">{{ name }}</el-col>
+                <el-col :span="10" style="text-align: left">{{ name }}</el-col>
                 <el-col :span="3" :offset="1">{{ gender }}<!--<img src="['static/img/' + this.gender + '.png']" alt="" height="100%">--></el-col>
               </el-row>
             </el-col>
           </el-row>
-          <el-row style="font-size: 12px; color: #bfd4d7">
-            <el-col :span="10" :offset="3">
+          <el-row style="text-align: left; width: 100%; font-size: 12px; color: #bfd4d7">
+            <el-col :span="20" :offset="3">
               <span>{{ school }}</span> · <span>{{ userid }}</span>
             </el-col>
           </el-row>
