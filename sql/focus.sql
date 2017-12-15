@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2017-12-14 21:14:58
+-- Generation Time: 2017-12-15 07:51:16
 -- 服务器版本： 5.5.56-log
 -- PHP Version: 5.5.38
 
@@ -45,16 +45,6 @@ CREATE TABLE `user` (
   `last_total` int(11) DEFAULT '0',
   `last_study` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `user`
---
-
-INSERT INTO `user` (`userid`, `name`, `school`, `gender`, `percentage`, `avatar`, `total_time`, `total_study`, `this_class_start`, `this_class_end`, `this_start`, `this_study`, `last_name`, `last_total`, `last_study`) VALUES
-('6108117001', '万伟强', '信息工程学院', '男', 0, 8, 0, 0, -1, 0, -1, 0, NULL, 0, 0),
-('6109117204', '易晟', '信息工程学院', '男', 0.318416, 3, 54300, 17290, 35100, 43800, -1, 0, NULL, 0, 0),
-('6109117208', '彭瀚林', '信息工程学院', '男', 0.546185, 8, 60009, 32776, -1, 0, -1, 0, NULL, 0, 0),
-('8207667209', 'test', '信息工程学院', '男', 0, 2, 0, 0, -1, 0, -1, 0, NULL, 0, 0);
 
 --
 -- Indexes for dumped tables
