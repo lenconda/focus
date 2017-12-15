@@ -57,7 +57,7 @@ def profile_post():
         info = json.loads(request.data);
         user.userid = info['userid'];
     extrainfo = user.query_profile();
-    info = {'avatar': extrainfo['avatar'], 'profile': []};
+    info = {'avatar': extrainfo['avatar'], 'profile': {}};
     info['profile']['userid'] = user.userid;
     info['profile']['name'] = extrainfo['name'];
     info['profile']['gender'] = extrainfo['gender'];
