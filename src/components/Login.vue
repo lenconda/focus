@@ -54,7 +54,8 @@
         type: 'warning'
       });
       if (this.getCookie('username') != null) {
-        window.location.href = '#/main';
+        // window.location.href = '#/main';
+        this.$router.push('main');
       }
     },
     data() {
@@ -68,21 +69,22 @@
     methods: {
       submit() {
         this.$http.post('/api/login', {username: this.formLabelAlign.name, password: this.formLabelAlign.password}).then(response => {
-          if (response.body.status == 0) {
+          if (response.body.status == 1) {
+            // window.location.href = '#/main';
+            this.$router.push('main');
+            document.cookie = `token=passport ${response.body.token}`;
+            document.cookie = `username=${this.formLabelAlign.name}`;
+            document.cookie = `counting=0`;
+            Vue.http.headers.common.Authorization = `passport ${response.body.token}`;
+          } else {
+            // this.$http.post('/api/login', {token: `passport ${response.body.token}`, username: this.formLabelAlign.name}).then(res => {
+            //   console.log(res.status);
+            // });
             this.$notify({
               title: '用户名或密码错误',
               message: response.body.message,
               type: 'error'
             });
-          } else {
-            // this.$http.post('/api/login', {token: `passport ${response.body.token}`, username: this.formLabelAlign.name}).then(res => {
-            //   console.log(res.status);
-            // });
-            document.cookie = `token=passport ${response.body.token}`;
-            document.cookie = `username=${this.formLabelAlign.name}`;
-            document.cookie = `counting=0`;
-            Vue.http.headers.common.Authorization = `passport ${response.body.token}`;
-            window.location.href = '#/main';
           }
         });
       },

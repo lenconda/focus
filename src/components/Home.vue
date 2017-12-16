@@ -77,7 +77,8 @@
     mounted() {
       document.body.style.background = '#fff';
       if (this.getCookie('username') == null) {
-        window.location.href = '#/login';
+        // window.location.href = '#/login';
+        this.$router.push('login');
       }
       this.$http.post('api/profile', {userid: this.getCookie('username')}).then(response => {
         this.avatar = response.body.avatar;
@@ -102,7 +103,8 @@
       },
       logOut() {
         this.clearAllCookie();
-        window.location.href = '#/login';
+        // window.location.href = '#/login';
+        this.$router.push('login');
         window.location.reload();
       },
       clearAllCookie() {

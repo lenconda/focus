@@ -56,7 +56,8 @@
     mounted() {
       document.body.style.background = '#d4faff';
       if (this.getCookie('username') == null) {
-        window.location.href = '#/login';
+        // window.location.href = '#/login';
+        this.$router.push('login');
       }
       this.$http.get('api/ranklist').then(response => {
         this.tableData = response.body;

@@ -23,7 +23,8 @@
     mounted() {
       // alert(this.getCookie('username'));
       if (this.getCookie('username') == null) {
-        window.location.href = '#/login';
+        // window.location.href = '#/login';
+        this.$router.push('login');
       }
       let _this = this;
       window.addEventListener('focus', function () {
